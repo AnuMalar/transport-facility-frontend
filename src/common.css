@@ -1,0 +1,266 @@
+/* //flex */
+.flex {
+    display: flex;
+}
+
+.align-c {
+    align-items: center;
+}
+
+.justify-c {
+    justify-content: center;
+}
+
+.justify-l {
+    justify-content: left;
+}
+
+.justify-r {
+    justify-content: right;
+}
+
+.justify-space-between {
+    justify-content: space-between;
+}
+
+.flex-d-c {
+    flex-direction: column;
+}
+
+/* //grid */
+.grid {
+    display: grid;
+}
+
+/* padding */
+.pad-0 {
+    padding: 0;
+}
+
+.pad-5 {
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.pad-10 {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.pad-15 {
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.pad-20 {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.pad-30 {
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.pad-tb-20 {
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+/* margin */
+.mar-0 {
+    margin: 0;
+}
+
+.mar-5 {
+    margin: 5px;
+}
+
+.mar-10 {
+    margin: 10px;
+}
+
+.mar-15 {
+    margin: 15px;
+}
+
+.mar-20 {
+    margin: 20px;
+}
+
+.mar-30 {
+    margin: 30px;
+}
+
+.mar-b-5 {
+    margin-bottom: 5px;
+}
+
+.mar-b-10 {
+    margin-bottom: 10px;
+}
+
+.mar-b-20 {
+    margin-bottom: 20px;
+}
+
+.mar-t-10 {
+    margin-top: 10px;
+}
+
+.mar-t-20 {
+    margin-top: 20px;
+}
+
+.mar-l-20 {
+    margin-left: 20px;
+}
+
+.mar-r-10 {
+    margin-right: 10px;
+}
+
+.mar-r-20 {
+    margin-right: 20px;
+}
+
+
+/* font */
+
+.font-10 {
+    font-size: 10px;
+}
+
+.font-12 {
+    font-size: 12px;
+}
+
+.font-14 {
+    font-size: 14px;
+}
+
+.font-16 {
+    font-size: 16px;
+}
+
+.font-18 {
+    font-size: 18px;
+}
+
+.font-20 {
+    font-size: 20px;
+}
+
+.font-26 {
+    font-size: 26px;
+}
+
+.font-40 {
+    font-size: 40px;
+}
+
+.f-w-500 {
+    font-weight: 500;
+}
+
+/* width */
+.width-100 {
+    width: 100%;
+}
+
+.width-95 {
+    width: 95%;
+}
+
+/* height */
+.height-100 {
+    height: 100%;
+}
+
+/* text align */
+.text-a-c {
+    text-align: center;
+}
+
+.text-a-l {
+    text-align: left;
+}
+
+/* input */
+input:focus {
+    /* border: 1.5px solid rgb(38, 0, 255); */
+    outline: none;
+}
+
+/* color */
+.white {
+    color: white;
+}
+
+.warn-c {
+    color: #eb0e0e;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+/* none */
+.bg-n {
+    background: none;
+    border: none;
+}
+
+/* glass effect */
+.glass-eff {
+  padding: 30px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.sub-v-a {
+    padding: 10px;
+    border-radius: 4px;
+    width: 300px;
+    border: 1px solid #c9c9c9;
+    font-size: 12px !important;
+    height: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.border-r-4 {
+    border-radius: 4px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pos-a {
+    position: absolute;
+}
+
+::ng-deep .mat-mdc-select {
+  font-size: 12px !important;
+}
+
+::ng-deep .mat-mdc-radio-button .mdc-radio__outer-circle {
+    top: 2px !important;
+    left: 2px !important;
+}
+
+::ng-deep .mat-mdc-radio-button .mdc-radio__background {
+    width: 16px !important;
+    height: 16px !important;
+}
+
+.mat-mdc-option {
+    min-height: 0;
+    font-size: 12px;
+    padding: 5px 10px;
+}

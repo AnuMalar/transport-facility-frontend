@@ -1,0 +1,100 @@
+<div class="glass-eff">
+    <div class="flex align-c justify-space-between w-320">
+        <mat-icon class="white f-w-500 pointer" (click)="backTo()">arrow_back</mat-icon>
+        <div class="white mar-b-10">
+            <div class="font-20 f-w-500"> Add New Ride</div>
+            <div class="font-12">Offer a ride for today</div>
+        </div>
+    </div>
+    <div class="bg-white pad-20 border-r-4">
+        <form [formGroup]="rideForm" (ngSubmit)="onSubmit()">
+
+            <!-- Employee ID -->
+            <div class="mar-b-10 grid grid-temp-c align-c">
+                <div class="text-a-l font-12">Employee ID <span class="warn-c">*</span> </div>
+                <div class="text-a-l">
+                    <input type="text" class="sub-v-a" placeholder="Employee ID" name="employeeId"
+                        formControlName="employeeId">
+                    <div *ngIf="rideForm.get('employeeId')?.hasError('required') && rideForm.controls['employeeId'].touched"
+                        class="warn-c font-10">Employee ID is required</div>
+                </div>
+            </div>
+
+            <!-- Vehicle Type -->
+            <div class="mar-b-10 grid grid-temp-c align-c">
+                <div class="text-a-l font-12">Vehicle Type <span class="warn-c">*</span> </div>
+                <div class="text-a-l">
+                    <mat-radio-group formControlName="vehicleType">
+                        <mat-radio-button value="Bike">Bike</mat-radio-button>
+                        <mat-radio-button value="Car">Car</mat-radio-button>
+                    </mat-radio-group>
+                    <div *ngIf="rideForm.get('vehicleType')?.hasError('required') && rideForm.controls['vehicleType'].touched"
+                        class="warn-c font-10">Vehicle Type is required</div>
+                </div>
+            </div>
+
+            <!-- Vehicle No -->
+            <div class="mar-b-10 grid grid-temp-c align-c">
+                <div class="text-a-l font-12">Vehicle No <span class="warn-c">*</span> </div>
+                <div class="text-a-l">
+                    <input type="text" class="sub-v-a" placeholder="Vehicle No" name="vehicleNo"
+                        formControlName="vehicleNo">
+                    <div *ngIf="rideForm.get('vehicleNo')?.hasError('required') && rideForm.controls['vehicleNo'].touched"
+                        class="warn-c font-10">Vehicle No is required</div>
+                </div>
+            </div>
+
+            <!-- Vacant Seats  -->
+            <div *ngIf="rideForm.value.vehicleType === 'Car'" class="mar-b-10 grid grid-temp-c align-c">
+                <div class="text-a-l font-12">Vacant Seats <span class="warn-c">*</span> </div>
+                <div class="text-a-l">
+                    <input type="number" class="sub-v-a" placeholder="Vacant Seats" name="vacantSeats"
+                        formControlName="vacantSeats">
+                    <div *ngIf="rideForm.get('vacantSeats')?.hasError('required') && rideForm.controls['vacantSeats'].touched"
+                        class="warn-c font-10">Vacant Seats is required</div>
+                </div>
+            </div>
+
+            <!-- Time -->
+            <div class="mar-b-10 grid grid-temp-c align-c">
+                <div class="text-a-l font-12">Time <span class="warn-c">*</span> </div>
+                <div class="text-a-l">
+                    <div>
+                        <input type="time" class="sub-v-a" placeholder="Time" name="time" formControlName="time">
+                    </div>
+                    <div *ngIf="rideForm.get('time')?.hasError('required') && rideForm.controls['time'].touched"
+                        class="warn-c font-10">Time is required</div>
+                </div>
+            </div>
+
+            <!-- Pickup Point -->
+            <div class="mar-b-10 grid grid-temp-c align-c">
+                <div class="text-a-l font-12">Pickup Point <span class="warn-c">*</span> </div>
+                <div class="text-a-l">
+                    <input type="text" class="sub-v-a" placeholder="Pickup Point" name="pickupPoint"
+                        formControlName="pickupPoint">
+                    <div *ngIf="rideForm.get('pickupPoint')?.hasError('required') && rideForm.controls['pickupPoint'].touched"
+                        class="warn-c font-10">Pickup Point is required</div>
+                </div>
+            </div>
+
+            <!-- Destination -->
+            <div class="mar-b-10 grid grid-temp-c align-c">
+                <div class="text-a-l font-12">Destination <span class="warn-c">*</span> </div>
+                <div class="text-a-l">
+                    <input type="text" class="sub-v-a" placeholder="Destination" name="destination"
+                        formControlName="destination">
+                    <div *ngIf="rideForm.controls['destination'].invalid && rideForm.controls['destination'].touched"
+                        class="warn-c font-10">Destination is required</div>
+                </div>
+            </div>
+
+            <div class="mar-t-20 flex align-c justify-r">
+                <button mat-stroked-button class="mar-r-20" type="button" (click)="backTo()">Cancel</button>
+                <button type="submit" mat-flat-button [disabled]="rideForm.invalid">Add
+                    Ride</button>
+            </div>
+            <!-- || isRideExist == true -->
+        </form>
+    </div>
+</div>

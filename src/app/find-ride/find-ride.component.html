@@ -1,0 +1,40 @@
+<div class="glass-eff mar-b-20">
+    <mat-icon class="white f-w-500 pointer mar-r-20 pos-a left-20" (click)="backTo()">arrow_back</mat-icon>
+    <div class="flex align-c justify-c">
+        <div class="grid align-c justify-c">
+            <div class="white mar-b-10">
+                <div class="font-30 f-w-500"> Find Ride</div>
+                <div class="font-12">Pick a ride for today</div>
+            </div>
+            <!-- filter row -->
+            <div class="flex align-c justify-c">
+                <input type="text" class="sub-v-a w-60 mar-r-20 bg-white" [disabled]="true" [value]="employeeId">
+                <input type="time" class="sub-v-a w-60 mar-r-20" (change)="rideObj.time = $any($event).target.value">
+                <mat-select placeholder="Select Vehicle Type" class="text-a-l sub-v-a bg-white mar-r-20">
+                    <mat-option *ngFor="let item of vType" class="font-12" [value]="item"
+                        (click)="rideObj.vehicleType = item">{{item}}</mat-option>
+                </mat-select>
+                <button mat-raised-button (click)="searchRide()">Search</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- list of rides -->
+<div *ngIf="ridesList.length > 0">
+    <div *ngFor="let row of ridesList" class="glass-eff mar-b-20 grid align-c grid-r-c">
+        <div *ngFor="let col of rideMeta" class="font-12 white">
+            <div>{{col.dname}}</div>
+            <div>{{col.type == 'time' ? (apiService.formatTime(row[col.name])) : row[col.name] ? row[col.name] : 0}}
+            </div>
+        </div>
+        <div>
+            <button mat-flat-button (click)="bookRide(row._id)">Book Ride</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="ridesList.length == 0" class="white glass-eff text-a-c">
+    <div>Currently, There is no ride available for your search.</div>
+    <div>Please be wait for sometime.</div>
+</div>

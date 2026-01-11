@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.cdk-overlay-container {
+  z-index: 10000;
+}
+
+.success .mdc-snackbar__surface {
+  background-color: #00753b !important;
+  color: white;
+}
+
+.error .mdc-snackbar__surface {
+  background-color: #f44336 !important;
+  color: white;
+}
+
+.warning .mdc-snackbar__surface {
+  background-color: #ff9800 !important;
+  color: black;
+}
+

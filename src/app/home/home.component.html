@@ -1,0 +1,19 @@
+<div class="text-a-c">
+    <div class="f-w-500 font-40 mar-b-10 let-spc-3 white mar-b-10">TRANSPORT FACILITY</div>
+    <div class="let-spc-7 mar-b-10 white">BOOK OR OFFER A RIDE FOR TODAY.</div>
+    <div class="glass-eff">
+        <div class="white flex align-c justify-c mar-b-20">
+            <mat-icon class="mar-r-10 font-20">calendar_today</mat-icon>
+            <div>{{ today | date:'fullDate' }}</div>
+        </div>
+        <div class="flex align-c justify-c">
+            <input type="text" placeholder="Employee Id" class="sub-v-a mar-r-20 w-140" [(ngModel)]="employeeId">
+            <mat-select class="bg-white sub-v-a text-a-l w-140" placeholder="Select Role" [(ngModel)]="selectedRole"> 
+                <mat-option value="Offer">Offer a Ride</mat-option>
+                <mat-option value="Find">Find a Ride</mat-option>
+            </mat-select>
+            <button *ngIf="selectedRole == 'Offer'" mat-raised-button (click)="addRide()" class="mar-l-20"> <mat-icon>add</mat-icon>Add Ride</button>
+            <button *ngIf="selectedRole && selectedRole != 'Offer'" mat-raised-button (click)="findRide()" class="mar-l-20"> <mat-icon>search</mat-icon>Find Ride</button>
+        </div>
+    </div>
+</div>

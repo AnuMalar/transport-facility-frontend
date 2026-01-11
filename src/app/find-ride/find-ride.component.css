@@ -1,0 +1,11 @@
+.grid-r-c {
+    grid-template-columns: 100px 100px 100px 100px 100px  100px 100px 150px;
+}
+
+.w-60 {
+    width: 60px !important;
+}
+
+.left-20 {
+    left: 20px;
+}
