@@ -5,3 +5,37 @@
 .w-320 {
     width: 320px;
 }
+
+.pad-10-20 {
+    padding: 10px 20px;
+}
+
+.height-r-c {
+    height: calc(100% - 260px);
+    overflow: auto;
+}
+
+@media screen and (max-width:460px){
+    .sub-v-a {
+        width: 200px;
+    }
+
+    .grid-temp-c {
+    grid-template-columns: 90px auto;
+}
+}
+
+@media screen and (max-width:420px){
+    .sub-v-a {
+        width: 200px;
+    }
+
+    .grid-temp-c {
+    grid-template-columns: auto;
+}
+
+.height-r-c {
+    height: calc(100vh - 340px);
+    overflow: auto;
+}
+}

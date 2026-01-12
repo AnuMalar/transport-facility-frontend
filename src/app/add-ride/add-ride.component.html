@@ -1,16 +1,16 @@
-<div class="glass-eff">
-    <div class="flex align-c justify-space-between w-320">
-        <mat-icon class="white f-w-500 pointer" (click)="backTo()">arrow_back</mat-icon>
-        <div class="white mar-b-10">
-            <div class="font-20 f-w-500"> Add New Ride</div>
-            <div class="font-12">Offer a ride for today</div>
+<div class="glass-eff ">
+    <div class="flex bg-white align-c border-r-8 pad-10 border-b">
+                <mat-icon class="f-w-500 pointer mar-r-20" (click)="backTo()">arrow_back</mat-icon>
+        <div>
+            <div class="font-16 f-w-500"> Add New Ride</div>
+            <div class="font-10">Offer a ride for today</div>
         </div>
     </div>
-    <div class="bg-white pad-20 border-r-4">
+    <div class="bg-white pad-t-10 border-r-8 height-r-c">
         <form [formGroup]="rideForm" (ngSubmit)="onSubmit()">
 
             <!-- Employee ID -->
-            <div class="mar-b-10 grid grid-temp-c align-c">
+            <div class="pad-10-20 grid grid-temp-c align-c">
                 <div class="text-a-l font-12">Employee ID <span class="warn-c">*</span> </div>
                 <div class="text-a-l">
                     <input type="text" class="sub-v-a" placeholder="Employee ID" name="employeeId"
@@ -21,7 +21,7 @@
             </div>
 
             <!-- Vehicle Type -->
-            <div class="mar-b-10 grid grid-temp-c align-c">
+            <div class="pad-10-20 grid grid-temp-c align-c">
                 <div class="text-a-l font-12">Vehicle Type <span class="warn-c">*</span> </div>
                 <div class="text-a-l">
                     <mat-radio-group formControlName="vehicleType">
@@ -34,7 +34,7 @@
             </div>
 
             <!-- Vehicle No -->
-            <div class="mar-b-10 grid grid-temp-c align-c">
+            <div class="pad-10-20 grid grid-temp-c align-c">
                 <div class="text-a-l font-12">Vehicle No <span class="warn-c">*</span> </div>
                 <div class="text-a-l">
                     <input type="text" class="sub-v-a" placeholder="Vehicle No" name="vehicleNo"
@@ -45,7 +45,7 @@
             </div>
 
             <!-- Vacant Seats  -->
-            <div *ngIf="rideForm.value.vehicleType === 'Car'" class="mar-b-10 grid grid-temp-c align-c">
+            <div *ngIf="rideForm.value.vehicleType === 'Car'" class="pad-10-20 grid grid-temp-c align-c">
                 <div class="text-a-l font-12">Vacant Seats <span class="warn-c">*</span> </div>
                 <div class="text-a-l">
                     <input type="number" class="sub-v-a" placeholder="Vacant Seats" name="vacantSeats"
@@ -56,7 +56,7 @@
             </div>
 
             <!-- Time -->
-            <div class="mar-b-10 grid grid-temp-c align-c">
+            <div class="pad-10-20 grid grid-temp-c align-c">
                 <div class="text-a-l font-12">Time <span class="warn-c">*</span> </div>
                 <div class="text-a-l">
                     <div>
@@ -68,7 +68,7 @@
             </div>
 
             <!-- Pickup Point -->
-            <div class="mar-b-10 grid grid-temp-c align-c">
+            <div class="pad-10-20 grid grid-temp-c align-c">
                 <div class="text-a-l font-12">Pickup Point <span class="warn-c">*</span> </div>
                 <div class="text-a-l">
                     <input type="text" class="sub-v-a" placeholder="Pickup Point" name="pickupPoint"
@@ -79,7 +79,7 @@
             </div>
 
             <!-- Destination -->
-            <div class="mar-b-10 grid grid-temp-c align-c">
+            <div class="pad-10-20 grid grid-temp-c align-c">
                 <div class="text-a-l font-12">Destination <span class="warn-c">*</span> </div>
                 <div class="text-a-l">
                     <input type="text" class="sub-v-a" placeholder="Destination" name="destination"
@@ -89,7 +89,7 @@
                 </div>
             </div>
 
-            <div class="mar-t-20 flex align-c justify-r">
+            <div class="pad-15 flex align-c justify-r">
                 <button mat-stroked-button class="mar-r-20" type="button" (click)="backTo()">Cancel</button>
                 <button type="submit" mat-flat-button [disabled]="rideForm.invalid">Add
                     Ride</button>

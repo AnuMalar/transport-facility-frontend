@@ -53,7 +53,7 @@ export class AddRideComponent implements OnInit {
       if (res.statusCode == 201) {
         this.apiService.showSnackBar(res.message, ['success']);
         this.rideForm.reset();
-        this.router.navigate(['/find-ride']);
+        this.router.navigate(['/home']);
       }
     })
   }

@@ -1,4 +1,4 @@
-export const rideNetadata = [
+export const rideMetadata = [
     { name: "employeeId", dname: "Employee ID", type: "text" },
     { name: "vehicleType", dname: "Vehicle Type", type: "text" },
     { name: "vehicleNo", dname: "Vehicle No", type: "text" },

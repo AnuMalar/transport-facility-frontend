@@ -1,40 +1,68 @@
-<div class="glass-eff mar-b-20">
-    <mat-icon class="white f-w-500 pointer mar-r-20 pos-a left-20" (click)="backTo()">arrow_back</mat-icon>
-    <div class="flex align-c justify-c">
-        <div class="grid align-c justify-c">
-            <div class="white mar-b-10">
+<div class="glass-eff  pad-20 border-r-8">
+    <div class="grid align-c justify-c">
+        <div>
+            <div class="mar-b-10">
                 <div class="font-30 f-w-500"> Find Ride</div>
                 <div class="font-12">Pick a ride for today</div>
             </div>
             <!-- filter row -->
-            <div class="flex align-c justify-c">
-                <input type="text" class="sub-v-a w-60 mar-r-20 bg-white" [disabled]="true" [value]="employeeId">
-                <input type="time" class="sub-v-a w-60 mar-r-20" (change)="rideObj.time = $any($event).target.value">
-                <mat-select placeholder="Select Vehicle Type" class="text-a-l sub-v-a bg-white mar-r-20">
+            <div class="flex align-c mar-b-10">
+                <input type="text" class="sub-v-a w-60 mar-r-10 bg-white" [value]="employeeId">
+                <mat-select placeholder="Select Vehicle Type" class="text-a-l sub-v-a width-130 bg-white mar-r-10">
                     <mat-option *ngFor="let item of vType" class="font-12" [value]="item"
                         (click)="rideObj.vehicleType = item">{{item}}</mat-option>
                 </mat-select>
-                <button mat-raised-button (click)="searchRide()">Search</button>
+                <input type="time" class="sub-v-a w-60 mar-r-10" (change)="rideObj.time = $any($event).target.value">
+                <button class="tab-view-none" mat-raised-button (click)="searchRide()">Search</button>
+            </div>
+            <div class="tab-view-flex align-c justify-c" >
+            <button  mat-raised-button (click)="searchRide()">Search</button>
+            </div>
+            <!-- list of rides -->
+            <div class="font-14 f-w-500">Search Results</div>
+
+            <!-- spinner -->
+            <div class="width-100 flex align-c justify-c">
+                <mat-spinner *ngIf="isLoading == true" [diameter]="40" [strokeWidth]="4"></mat-spinner>
+            </div>
+
+            <div *ngIf="ridesList.length > 0" class="mar-t-20 {{ridesList.length > 2 ? 'height-v-c':''}}">
+                <div *ngFor="let row of ridesList" class="mar-b-20 grid bg-white align-c grid-r-c">
+                    <div class="overflow-a flex">
+                        <div *ngFor="let col of rideMeta" class="font-12 ver-line">
+                            <div>{{col.dname}}</div>
+                            <div>{{col.type == 'time' ? (apiService.formatTime(row[col.name])) : row[col.name] ?
+                                row[col.name] : 0}}
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button mat-flat-button class="pick-btn font-12 ride-action mar-l-20"
+                            (click)="bookRide(row._id)">Pick Ride</button>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="ridesList.length == 0 " class="grid align-c justify-c font-10 height-m-c">
+                <div *ngIf="isLoading == false && isSearch == true" class="img-h-w">
+                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/waiting-illustration-svg-download-png-7973911.png"
+                        class="height-100 width-100">
+                </div>
+                <div *ngIf="isLoading == false && isSearch == true" class="text-a-c">
+                    <div>Currently, There is no ride available for your search.</div>
+                    <div>Please be wait for sometime.</div>
+                </div>
+                <div *ngIf="isSearch == false" class="img-h-w">
+                    <img src="https://cdni.iconscout.com/illustration/premium/thumb/suche-nach-datei-illustration-svg-download-png-3414904.png"
+                        class="height-100 width-100">
+                </div>
+                <div class="text-a-c" *ngIf="isSearch == false">
+                    <div>Search the available rides for today.</div>
+                </div>
+            </div>
+            <div class="flex align-c justify-r">
+                <button class="" mat-stroked-button (click)="backTo()">Back</button>
             </div>
         </div>
     </div>
-</div>
-
-<!-- list of rides -->
-<div *ngIf="ridesList.length > 0">
-    <div *ngFor="let row of ridesList" class="glass-eff mar-b-20 grid align-c grid-r-c">
-        <div *ngFor="let col of rideMeta" class="font-12 white">
-            <div>{{col.dname}}</div>
-            <div>{{col.type == 'time' ? (apiService.formatTime(row[col.name])) : row[col.name] ? row[col.name] : 0}}
-            </div>
-        </div>
-        <div>
-            <button mat-flat-button (click)="bookRide(row._id)">Book Ride</button>
-        </div>
-    </div>
-</div>
-
-<div *ngIf="ridesList.length == 0" class="white glass-eff text-a-c">
-    <div>Currently, There is no ride available for your search.</div>
-    <div>Please be wait for sometime.</div>
 </div>

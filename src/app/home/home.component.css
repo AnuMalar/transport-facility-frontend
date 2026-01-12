@@ -1,4 +1,4 @@
-.let-spc-7 {
+/* .let-spc-7 {
     letter-spacing: 7px;
 }
 
@@ -8,4 +8,128 @@
 
 .w-140 {
   width: 140px !important;
+}
+
+.font-40-res {
+    font-size: 40px;
+}
+
+.grid-b-c {
+    grid-template-columns: 180px 180px 140px;
+}
+
+@media (max-width:600px) {
+.font-40-res {
+    font-size: 20px;
+}
+
+.let-spc-7 {
+    letter-spacing: 3px;
+}
+
+.w-140 {
+  width: 110px !important;
+}
+} */
+
+/* .container {
+  width: 600px;
+  margin: 30px auto;
+  font-family: Arial, sans-serif;
+} */
+
+/* .header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.header p {
+  margin: 5px 0 20px 0;
+  color: #555;
+} */
+
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  background-color: #eee;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.btn:hover {
+  /* background-color: #ddd; */
+}
+
+/* .success-msg {
+  background-color: #d4edda;
+  color: #155724;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+} */
+
+.ride-card {
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  grid-template-columns: 30px 200px 110px;
+  border: 1px solid #c2c2c2;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  /* background-color: black; */
+}
+
+.ride-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vehicle-icon {
+ position: relative;
+ top: -33px;
+ color: #e91e67;
+}
+
+.pick-btn {
+  padding: 0;
+  height: 30px;
+  /* background-color: #007bff;
+  color: #fff; */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 85px;
+}
+
+.pick-btn:hover {
+  /* background-color: #0056b3; */
+}
+
+
+
+.icon-c {
+    color: #0056b3;
+}
+
+
+.height-v-c {
+    height: calc(100vh - 360px);
+    overflow: auto;
+}
+
+
+
+@media screen and (max-width:460px) {
+   .ride-card {
+     grid-template-columns: 30px 160px 95px;
+   }
 }
