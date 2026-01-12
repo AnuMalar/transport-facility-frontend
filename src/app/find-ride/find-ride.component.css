@@ -1,65 +1,43 @@
 * {
-    scrollbar-width: none;
+  scrollbar-width: none;
 }
 
 .grid-r-c {
-    grid-template-columns: 1fr auto;
-     border: 1px solid #c2c2c2;
+  grid-template-columns: 1fr auto;
+  border: 1px solid #c2c2c2;
   padding: 10px;
   border-radius: 6px;
   overflow: hidden;
 }
 
 .w-60 {
-    width: 60px !important;
-}
-
-.left-20 {
-    left: 20px;
+  width: 60px !important;
 }
 
 .ver-line {
-  /* /* min-width: 130px; */
   padding: 5px 10px;
   border-right: 1px solid #e0e0e0;
   margin-right: 12px;
 }
+
 .pick-btn {
   padding: 0;
   height: 30px;
-  border-radius: 4px;
-  cursor: pointer;
   width: 85px;
 }
 
-.ride-row {
-  display: grid;
-  grid-template-columns: 1fr auto; /* content + button */
-  align-items: center;
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.ride-scroll-content {
-  display: flex;
-  gap: 20px;
-  padding: 15px;
-  overflow-x: auto;        /* horizontal scroll */
-  white-space: nowrap;
-}
-
 .height-v-c {
-    height: calc(100vh - 360px);
-    overflow: auto;
+  height: calc(100vh - 360px);
+  overflow: auto;
 }
 
-  .tab-view-flex {
-        display: none;
-    }
+.tab-view-flex {
+  display: none;
+}
 
-      .tab-view-none {
-        display: flex;
-    }
+.tab-view-none {
+  display: flex;
+}
 
 @media (max-width: 860px) {
   .ver-line {
@@ -67,19 +45,18 @@
   }
 }
 
-@media screen and (max-width:600px) {
-    .width-130 {
-        width: 130px !important;
-    }
+@media screen and (max-width: 600px) {
+  .width-130 {
+    width: 130px !important;
+  }
 }
 
 @media (max-width: 460px) {
-
   .tab-view-flex {
-        display: flex;
-    }
+    display: flex;
+  }
 
-          .tab-view-none {
-        display: none;
-    }
+  .tab-view-none {
+    display: none;
+  }
 }

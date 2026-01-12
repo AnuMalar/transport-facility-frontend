@@ -1,33 +1,41 @@
-<div class="glass-eff pad-20">
+<div class="glass-eff pad-20 card-w">
     <!-- Header -->
-    <div class="text-a-l mar-b-20">
+    <div class="text-a-l mar-b-10">
         <div class="font-20 f-w-500 mar-b-5">Transport Facility – Today's Rides</div>
         <div class="font-14">Schedule or book a ride for today</div>
     </div>
-    <input type="text" placeholder="Employee Id (eg:EMP001)" class="sub-v-a mar-b-20 w-140" [(ngModel)]="employeeId">
+    <input type="text" placeholder="Employee Id (eg:EMP001)" class="sub-v-a mar-b-10 w-140" [(ngModel)]="employeeId">
     <!-- Buttons -->
-    <div class="button-group">
-        <button class="btn" mat-raised-button (click)="addRide()"><mat-icon>add</mat-icon> Add New Ride</button>
-        <button class="btn" mat-raised-button (click)="findRide()"><mat-icon>local_taxi</mat-icon> Find a Ride</button>
+    <div class="mar-b-20 flex">
+        <button class="btn pointer border-r-4 font-12 mar-r-10" mat-flat-button
+            (click)="addRide()"><mat-icon>add</mat-icon> Add New Ride</button>
+        <button class="btn pointer border-r-4 font-12" mat-flat-button
+            (click)="findRide()"><mat-icon>local_taxi</mat-icon> Find a Ride</button>
     </div>
     <!-- Available Rides -->
     <div class="text-a-l">
-        <div class="flex align-c justify-space-between mar-b-20">
+        <div class="flex align-c justify-space-between mar-b-10">
             <div class="font-16 f-w-500 ">Available Rides Today</div>
-             <mat-select placeholder="Select" class="text-a-l sub-v-a bg-white" style="width: 80px;padding: 5px 10px;" [value]="selectedRole">
-                    <mat-option *ngFor="let item of vType" class="font-12" [value]="item" (click)="selectedRole = item;searchRide()"
-                        >{{item}}</mat-option>
-                </mat-select>
+            <mat-select placeholder="Select" class="text-a-l sub-v-a bg-white" style="width: 80px;padding: 5px 10px;"
+                [value]="selectedRole">
+                <mat-option *ngFor="let item of vType" class="font-12" [value]="item"
+                    (click)="selectedRole = item;rideType()">{{item}}</mat-option>
+            </mat-select>
         </div>
-        <div class="width-100 flex align-c justify-c">
-            <mat-spinner *ngIf="isLoading == true" [diameter]="40" [strokeWidth]="4"></mat-spinner>
+        <div *ngIf="isLoading == true" class="width-100 flex align-c justify-c">
+            <mat-spinner [diameter]="40" [strokeWidth]="4"></mat-spinner>
         </div>
-        <div *ngIf="ridesList.length > 0" class="{{ridesList.length > 2 ? 'height-v-c':''}}">
-            <div *ngFor="let ride of ridesList" class="ride-card font-12 bg-white">
-                <mat-icon class="vehicle-icon font-20">{{ ride.vehicleType === 'Bike' ? 'two_wheeler' : 'local_taxi'}}</mat-icon>
-                <div class="ride-info">
+        <div *ngIf="ridesList.length > 0 && isLoading == false" class="{{ridesList.length > 2 ? 'height-v-c':''}}">
+            <div *ngFor="let ride of ridesList" class="grid ride-card align-c pad-10 mar-b-10 font-12 bg-white">
+                <mat-icon class="vehicle-icon pos-r font-20">{{ ride.vehicleType === 'Bike' ? 'two_wheeler' :
+                    'local_taxi'}}</mat-icon>
+                <div class="flex align-c gap-10">
                     <div>
-                        <div class="f-w-500">{{ ride.employeeId }}</div>
+                        <div class="f-w-500 flex align-c">
+                            <div> {{ ride.employeeId }}</div>
+                            <mat-icon *ngIf="employeeId == ride.employeeId"
+                                class="font-12 icon-c edit pos-r top-left pointer">edit</mat-icon>
+                        </div>
                         <div class="flex align-c">
                             <div class="mar-r-10">
                                 <div>{{ride.pickupPoint}}</div>
@@ -37,12 +45,15 @@
                                 <div>{{ride.destination}}</div>
                             </div>
                         </div>
-                        <div class="f-w-500 icon-c">{{ apiService.formatTime(ride.time) }}</div>
+                        <div class="f-w-500 icon-c">Time:{{ apiService.formatTime(ride.time) }}</div>
                         <div>Vacant Seats: {{ ride.vacantSeats }}</div>
                     </div>
                 </div>
-                <button class="pick-btn font-14" mat-flat-button [disabled]="!employeeId ? true : false" (click)="bookRide(ride._id)">Pick
-                    Ride</button>
+                <div class="grid justify-r">
+                    <button class="pick-btn border-r-4 pointer font-14" mat-flat-button
+                        [disabled]="!employeeId ? true : false" (click)="bookRide(ride._id)">Pick
+                        Ride</button>
+                </div>
             </div>
         </div>
         <div *ngIf="ridesList.length == 0 && isLoading == false" class="grid align-c justify-c font-10 height-m-c">

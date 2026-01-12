@@ -83,7 +83,8 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  searchRide() {
+  // select ride vehicle type
+  rideType() {
     this.isLoading = true;
     this.apiService.searchRide({ vehicleType: this.selectedRole }).subscribe((res: any) => {
       if (res.statusCode == 200 && res.info && res.info.length) {

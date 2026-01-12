@@ -5,7 +5,6 @@
 
 .bg-image {
   background-image: url("https://www.geoapify.com/static/draw-route-on-the-map-2f56af7a3ef45c58bc97639e2bf1a438.png");
-  /* background-image: url("https://media.istockphoto.com/id/1356005360/vector/route-mapping-city-streets-car-ride.jpg?s=612x612&w=0&k=20&c=zmcoP55mMdM_a1W7RDRvjV4kYiT_P78d947LztmvVTw="); */
   background-size: cover;
   background-position: center;
 }

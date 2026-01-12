@@ -1,6 +1,6 @@
 <div class="glass-eff ">
     <div class="flex bg-white align-c border-r-8 pad-10 border-b">
-                <mat-icon class="f-w-500 pointer mar-r-20" (click)="backTo()">arrow_back</mat-icon>
+        <mat-icon class="f-w-500 pointer mar-r-20" (click)="backTo()">arrow_back</mat-icon>
         <div>
             <div class="font-16 f-w-500"> Add New Ride</div>
             <div class="font-10">Offer a ride for today</div>
@@ -41,6 +41,10 @@
                         formControlName="vehicleNo">
                     <div *ngIf="rideForm.get('vehicleNo')?.hasError('required') && rideForm.controls['vehicleNo'].touched"
                         class="warn-c font-10">Vehicle No is required</div>
+                    <div *ngIf="rideForm.get('vehicleNo')?.hasError('maxlength') && rideForm.controls['vehicleNo'].touched" class="warn-c font-10">Maximum limit is 8 characters
+                    </div>
+                    <div *ngIf="rideForm.get('vehicleNo')?.hasError('minlength') && rideForm.controls['vehicleNo'].touched" class="warn-c font-10">Minimum limit is 4 characters
+                    </div>
                 </div>
             </div>
 
@@ -51,7 +55,11 @@
                     <input type="number" class="sub-v-a" placeholder="Vacant Seats" name="vacantSeats"
                         formControlName="vacantSeats">
                     <div *ngIf="rideForm.get('vacantSeats')?.hasError('required') && rideForm.controls['vacantSeats'].touched"
-                        class="warn-c font-10">Vacant Seats is required</div>
+                        class="warn-c font-10">Vacant Seats are required</div>
+                    <div *ngIf="rideForm.get('vacantSeats')?.hasError('max')" class="warn-c font-10">Maximum seat limit exceeded
+                    </div>
+                    <div *ngIf="rideForm.get('vacantSeats')?.hasError('min')" class="warn-c font-10">  Minimum of 1 seat is required
+                    </div>
                 </div>
             </div>
 
@@ -94,7 +102,6 @@
                 <button type="submit" mat-flat-button [disabled]="rideForm.invalid">Add
                     Ride</button>
             </div>
-            <!-- || isRideExist == true -->
         </form>
     </div>
 </div>

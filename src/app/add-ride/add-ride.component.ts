@@ -29,7 +29,7 @@ export class AddRideComponent implements OnInit {
     this.rideForm = this.fb.group({
       employeeId: [{ value: this.empId, disabled: true }, [Validators.required]],
       vehicleType: ['', [Validators.required]],
-      vehicleNo: ['', [Validators.required]],
+      vehicleNo: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
       vacantSeats: ['', [Validators.required]],
       time: ['', [Validators.required]],
       pickupPoint: ['', Validators.required],
@@ -38,9 +38,10 @@ export class AddRideComponent implements OnInit {
 
     this.rideForm.get('vehicleType')?.valueChanges.subscribe(type => {
       if (type === 'Car') {
-        this.rideForm.get('vacantSeats')?.setValidators([Validators.required, Validators.min(1)]);
+        this.rideForm.get('vacantSeats')?.setValidators([Validators.required, Validators.min(1), Validators.max(8)]);
       } else {
         this.rideForm.get('vacantSeats')?.clearValidators();
+        this.rideForm.get('vacantSeats')?.setValidators([Validators.required, Validators.min(1), Validators.max(1)]);
         this.rideForm.get('vacantSeats')?.setValue(1);
       }
       this.rideForm.get('vacantSeats')?.updateValueAndValidity();

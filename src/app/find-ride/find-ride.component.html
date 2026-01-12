@@ -7,7 +7,7 @@
             </div>
             <!-- filter row -->
             <div class="flex align-c mar-b-10">
-                <input type="text" class="sub-v-a w-60 mar-r-10 bg-white" [value]="employeeId">
+                <input type="text" class="sub-v-a w-60 mar-r-10 bg-white" [value]="employeeId" [disabled]="true">
                 <mat-select placeholder="Select Vehicle Type" class="text-a-l sub-v-a width-130 bg-white mar-r-10">
                     <mat-option *ngFor="let item of vType" class="font-12" [value]="item"
                         (click)="rideObj.vehicleType = item">{{item}}</mat-option>
@@ -26,7 +26,7 @@
                 <mat-spinner *ngIf="isLoading == true" [diameter]="40" [strokeWidth]="4"></mat-spinner>
             </div>
 
-            <div *ngIf="ridesList.length > 0" class="mar-t-20 {{ridesList.length > 2 ? 'height-v-c':''}}">
+            <div *ngIf="ridesList.length > 0 && isLoading == false" class="mar-t-20 mar-b-20 {{ridesList.length > 2 ? 'height-v-c':''}}">
                 <div *ngFor="let row of ridesList" class="mar-b-20 grid bg-white align-c grid-r-c">
                     <div class="overflow-a flex">
                         <div *ngFor="let col of rideMeta" class="font-12 ver-line">
@@ -37,20 +37,21 @@
                         </div>
                     </div>
                     <div>
-                        <button mat-flat-button class="pick-btn font-12 ride-action mar-l-20"
+                        <button mat-flat-button class="pick-btn border-r-4 pointer font-12 ride-action mar-l-20"
                             (click)="bookRide(row._id)">Pick Ride</button>
                     </div>
                 </div>
             </div>
 
-            <div *ngIf="ridesList.length == 0 " class="grid align-c justify-c font-10 height-m-c">
+            <div *ngIf="ridesList.length == 0  && isLoading == false" class="grid align-c justify-c font-10 height-m-c">
                 <div *ngIf="isLoading == false && isSearch == true" class="img-h-w">
                     <img src="https://cdni.iconscout.com/illustration/premium/thumb/waiting-illustration-svg-download-png-7973911.png"
                         class="height-100 width-100">
                 </div>
                 <div *ngIf="isLoading == false && isSearch == true" class="text-a-c">
-                    <div>Currently, There is no ride available for your search.</div>
-                    <div>Please be wait for sometime.</div>
+                    <div>Currently, There is no ride available for your search</div>
+                    <div> (or) You had booked another Ride.</div>
+                    <div>Please be wait for sometime</div>
                 </div>
                 <div *ngIf="isSearch == false" class="img-h-w">
                     <img src="https://cdni.iconscout.com/illustration/premium/thumb/suche-nach-datei-illustration-svg-download-png-3414904.png"

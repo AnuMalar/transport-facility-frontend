@@ -132,9 +132,7 @@
     margin-right: 20px;
 }
 
-
 /* font */
-
 .font-10 {
     font-size: 10px;
 }
@@ -221,14 +219,9 @@ input:focus {
 
 /* glass effect */
 .glass-eff {
-  /* padding: 30px;
-  text-align: center; */
-  /* background: rgba(255, 255, 255, 0.2); */
-  background-color: #e5e5e5;
-  /* backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px); */
-  border-radius: 8px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    background-color: #f5f6f7;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
 }
 
 .sub-v-a {
@@ -283,9 +276,8 @@ input:focus {
     height: max-content;
 }
 
-
 ::ng-deep .mat-mdc-select {
-  font-size: 12px !important;
+    font-size: 12px !important;
 }
 
 ::ng-deep .mat-mdc-radio-button .mdc-radio__outer-circle {
