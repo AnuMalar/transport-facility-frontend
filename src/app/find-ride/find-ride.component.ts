@@ -14,7 +14,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   standalone: true,
   imports: [CommonModule, MatIconModule, ReactiveFormsModule, MatButton, MatSelectModule, MatProgressSpinnerModule],
   templateUrl: './find-ride.component.html',
-  styleUrls: ['./find-ride.component.css', '/src/common.css']
+  styleUrls: ['./find-ride.component.css', '../../common.css']
 })
 
 export class FindRideComponent implements OnInit {

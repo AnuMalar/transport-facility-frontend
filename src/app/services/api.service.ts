@@ -55,7 +55,9 @@ export class ApiService {
 
   // search a ride based on criteria
   searchRide(obj: any): Observable<any> {
-    return this.http.post(this.apiUrl + '/search', obj);
+    const currentTime = new Date().toTimeString().slice(0, 5);
+    const params = new HttpParams().set('currentTime', currentTime);
+    return this.http.post(this.apiUrl + '/search', obj, { params });
   }
 
   // book a ride for today

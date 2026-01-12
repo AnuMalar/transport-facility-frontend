@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, FormsModule, MatButtonModule, MatSelectModule, MatRadioModule, MatIconModule],
   templateUrl: './add-ride.component.html',
-  styleUrls: ['./add-ride.component.css', '/src/common.css']
+  styleUrls: ['./add-ride.component.css', '../../common.css']
 })
 
 export class AddRideComponent implements OnInit {

@@ -14,7 +14,7 @@ import { rideMetadata } from '../shared/const';
   standalone: true,
   imports: [MatSelectModule, MatButtonModule, FormsModule, MatIconModule, CommonModule, MatProgressSpinner],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css', '/src/common.css']
+  styleUrls: ['./home.component.css', '../../common.css']
 })
 
 export class HomeComponent implements OnInit {

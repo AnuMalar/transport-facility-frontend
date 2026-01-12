@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FindRideComponent } from './find-ride.component';
 
 describe('FindRideComponent', () => {
@@ -8,9 +8,9 @@ describe('FindRideComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FindRideComponent]
+      imports: [FindRideComponent, HttpClientTestingModule]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(FindRideComponent);
     component = fixture.componentInstance;
